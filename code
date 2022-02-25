@@ -1,0 +1,24 @@
+//created only a function to generate all combo.
+
+
+void solve(string s , int l , int r , vector<string> &v){
+	        if(l==r){
+	            v.push_back(s);
+	            
+	        }
+	        for(int i=l;i<r;i++ ){
+	            swap(s[l],s[i]);
+	            solve(s,l+1,r,v);
+	            swap(s[l],s[i]);
+	        }
+	    }
+	    
+		vector<string>find_permutation(string S)
+		{
+		    // Code here there
+		    vector<string> v;
+		    solve(S,0,S.size(), v);
+		    sort(v.begin(),v.end());
+		    return v;
+		    
+		}
